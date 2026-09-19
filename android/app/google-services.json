@@ -12,7 +12,20 @@
           "package_name": "com.dropvoice.dropvoice"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "886598137672-je0o3r8jtovdelflrgvhc8gj8si32pur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dropvoice.dropvoice",
+            "certificate_hash": "bcf221605664d47a9b447457b63712a57a7d5cd1"
+          }
+        },
+        {
+          "client_id": "886598137672-tdn55m3c72cjitcs4po3h1270orem1it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDW9MEW0JMOCk0AWtWzUoeU72uo4orD7TM"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886598137672-tdn55m3c72cjitcs4po3h1270orem1it.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "886598137672-igtp951bnr8dv6dq53kpu5im0j4m97l1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dropvoice.dropvoice"
+              }
+            }
+          ]
         }
       }
     }
