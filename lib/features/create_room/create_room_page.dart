@@ -40,6 +40,9 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
       return;
     }
 
+    // 2. Request Battery Optimization exemption so BGMI doesn't kill it
+    await Permission.ignoreBatteryOptimizations.request();
+
     setState(() => _state = _CreateState.creating);
 
     try {

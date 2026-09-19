@@ -48,6 +48,24 @@ class LiveKitService {
     required String token,
   }) async {
     try {
+      // Configure Audio Session so BGMI doesn't kill the mic by stealing Audio Focus
+      try {
+        await lk.AudioManager.instance.setAudioSessionOptions(
+          const lk.AudioSessionOptions.communication(
+            android: lk.AndroidAudioSessionConfiguration(
+              audioMode: lk.AndroidAudioMode.inCommunication,
+              manageAudioFocus: false, // Prevents game from muting our mic
+              focusMode: lk.AndroidAudioFocusMode.gain,
+              streamType: lk.AndroidAudioStreamType.voiceCall,
+              usageType: lk.AndroidAudioAttributesUsageType.voiceCommunication,
+              contentType: lk.AndroidAudioAttributesContentType.speech,
+            ),
+          ),
+        );
+      } catch (e) {
+        print('[AUDIO] Failed to set audio session: $e');
+      }
+
       // Enable background execution for Android 14+
       try {
         const androidConfig = FlutterBackgroundAndroidConfig(

@@ -46,12 +46,14 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
     final status = await Permission.microphone.request();
     if (status != PermissionStatus.granted) {
       if (!mounted) return;
-      setState(() {
-        _state = _JoinState.error;
-        _error = 'Microphone permission denied.\nVoice comms require mic access.';
-      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Microphone permission required!')),
+      );
       return;
     }
+
+    // 2. Request Battery Optimization exemption so BGMI doesn't kill it
+    await Permission.ignoreBatteryOptimizations.request();
 
     setState(() => _state = _JoinState.connecting);
 
