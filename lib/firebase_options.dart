@@ -53,5 +53,6 @@ class DefaultFirebaseOptions {
     projectId: 'drpovoice',
     storageBucket: 'drpovoice.firebasestorage.app',
     iosBundleId: 'com.dropvoice.dropvoice',
+    iosClientId: '886598137672-igtp951bnr8dv6dq53kpu5im0j4m97l1.apps.googleusercontent.com',
   );
 }

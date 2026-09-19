@@ -7,12 +7,30 @@
 	<!-- Microphone permission — required for voice chat -->
 	<key>NSMicrophoneUsageDescription</key>
 	<string>DROPVOICE needs microphone access for voice communication.</string>
+	<!-- Image picker permissions -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>DROPVOICE needs access to your photo library to upload profile avatars.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>DROPVOICE needs access to your camera to take profile avatars.</string>
 	<!-- Background audio — keeps voice active when app is backgrounded -->
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
 		<string>voip</string>
 	</array>
+	<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.886598137672-igtp951bnr8dv6dq53kpu5im0j4m97l1</string>
+			</array>
+		</dict>
+	</array>
+	<!-- End of the Google Sign-in Section -->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
