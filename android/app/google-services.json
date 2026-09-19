@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886598137672",
+    "project_id": "drpovoice",
+    "storage_bucket": "drpovoice.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886598137672:android:c1fa5d4faf12e426bc657d",
+        "android_client_info": {
+          "package_name": "com.dropvoice.dropvoice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW9MEW0JMOCk0AWtWzUoeU72uo4orD7TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
