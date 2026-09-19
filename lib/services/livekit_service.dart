@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 import 'dart:async';
-
+import 'package:flutter_background/flutter_background.dart';
 import 'package:livekit_client/livekit_client.dart' as lk;
 
 import '../core/errors/app_exception.dart';
@@ -48,6 +48,20 @@ class LiveKitService {
     required String token,
   }) async {
     try {
+      // Enable background execution for Android 14+
+      try {
+        const androidConfig = FlutterBackgroundAndroidConfig(
+          notificationTitle: "DROPVOICE",
+          notificationText: "Voice chat is active.",
+          notificationImportance: AndroidNotificationImportance.normal,
+          notificationIcon: AndroidResource(name: 'ic_launcher', defType: 'mipmap'),
+        );
+        await FlutterBackground.initialize(androidConfig: androidConfig);
+        await FlutterBackground.enableBackgroundExecution();
+      } catch (e) {
+        print('[AUDIO] Failed to enable background execution: $e');
+      }
+
       _room = lk.Room(
         roomOptions: const lk.RoomOptions(
           adaptiveStream: true,
@@ -96,6 +110,11 @@ class LiveKitService {
   /// Disconnect and clean up.
   Future<void> disconnect() async {
     await _room?.disconnect();
+    try {
+      await FlutterBackground.disableBackgroundExecution();
+    } catch (e) {
+      print('[AUDIO] Failed to disable background: $e');
+    }
     _cleanup();
   }
 
